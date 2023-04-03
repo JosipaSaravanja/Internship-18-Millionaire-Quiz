@@ -1,0 +1,39 @@
+
+.title{
+    background-color: red;
+    grid-area: a;
+    background-image: linear-gradient(135deg, #5f3cbd, #fbeffa, #9690e9);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+    font-size: 40px;
+    font-weight: 700;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+  
+  .title *{
+    align-self:flex-start;
+    background-color: #f3ec78;
+      background-image: linear-gradient(135deg, #5f3cbd, #fbeffa, #9690e9);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent; 
+      -moz-text-fill-color: transparent;
+    display: flex;
+  }
+  
+  .title :nth-child(even){
+    margin-right: 50px;
+    align-self:flex-end;
+  }
+  .title :last-child{
+    font-size: 80px;
+    align-self: center;
+  }

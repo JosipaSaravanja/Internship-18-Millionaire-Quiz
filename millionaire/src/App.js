@@ -1,15 +1,9 @@
-import {Question} from "./components/question/question"
-import {Title} from "./components/title"
-import {SideWrapper} from "./components/sidewrapper/sidewrapper"
-import {Answers} from "./components/answers/answers"
+import {MainPage} from "./pages/mainPage"
 
 function App() {
   return (
     <div className="App">
-      <Title/>
-      <Question/>
-      <SideWrapper/>
-      <Answers/>
+      <MainPage/>
     </div>
   );
 }
