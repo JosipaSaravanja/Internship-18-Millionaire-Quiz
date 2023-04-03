@@ -1,0 +1,50 @@
+.sideWrapper{
+  background-color: purple;
+  grid-area: c;
+  box-sizing: border-box;
+  display: flex;
+  margin: 0 1.5vw 1vh 1vw;
+  border-radius: 3.75vh;
+  background-color: #000074;
+  border: 3px solid #595bcf;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+.jokers{
+  width: 100%; 
+  height: 9.5vh
+}
+
+.score{
+  width: 100%;
+  height: 9vh; 
+  color:white
+}
+
+.scoreBoard{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 60vh;
+}
+
+.scoreboardElement{
+  font-weight: 900;
+  letter-spacing: 3px;
+  align-items: center;
+  height: 4vh;
+  padding: 0 2.5vw;
+  color: orange;
+  display: flex;
+}
+
+.scoreboardElement > div:first-child{
+  width: 5vh
+}
+
+.scoreboardElement:nth-child(5n+1){
+  color: white;
+}
+

@@ -1,0 +1,13 @@
+.question{
+  background-color: yellow;
+  grid-area: b;
+  display: flex;
+  padding: 30px;
+  color: white;
+  font-size: 25px;
+  box-sizing: border-box;
+  border: 3px solid #595bcf;
+  border-radius: 3.75vh;
+  margin: 0 1.5vw;
+  background-color: #000074;
+}

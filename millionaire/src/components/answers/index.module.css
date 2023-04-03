@@ -1,0 +1,32 @@
+.answers{
+    grid-area: d;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1vh 1.5vw;
+    margin: 0 0 0 2vw;
+    border-radius: 4.25vh;
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    background-color: #000074;
+    border: 3px solid #595bcf;
+    padding: 25px;
+    height: 8.5vh;
+    width: 31vw;
+}
+
+.answer:hover{
+    background-color: orange;
+}
+
+.answers :nth-child(odd){
+    margin-right: 1vw;
+}
+
+.answers :nth-child(3), .answers :nth-child(4){
+    margin-top: 1vh;
+}
+
+  
