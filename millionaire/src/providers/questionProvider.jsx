@@ -27,7 +27,7 @@ export const QuestionProvider =({children})=>{
     const [id, setId]=useState(defaultContext.id);
     const nextQuestion =()=>{
         setId(id+1)
-        setQuestion(questinons[defaultContext.id]);
+        setQuestion(questions[id+1]);
     }
 
     return <QuestionContext.Provider value={{question, id, nextQuestion}}>{children}</QuestionContext.Provider>
