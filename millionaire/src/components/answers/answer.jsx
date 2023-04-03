@@ -1,5 +1,5 @@
 import classes from "./index.module.css"
 
-export const Answer=()=>{
-    return <div className={classes.answer}>A</div>
+export const Answer=(props)=>{
+    return <div className={classes.answer}>{props.text}</div>
 }
