@@ -3,6 +3,7 @@ import {Title} from "../components/title/title"
 import {SideWrapper} from "../components/sidewrapper/sidewrapper"
 import {Answers} from "../components/answers/answers"
 import classes from "./index.module.css"
+import {DialogSwitch} from "../components/dialogs/dialogSwitch"
 
 export const MainPage =()=>{
   return (
@@ -11,6 +12,7 @@ export const MainPage =()=>{
       <Question/>
       <SideWrapper/>
       <Answers/>
+      <DialogSwitch />
     </div>
   );
 }

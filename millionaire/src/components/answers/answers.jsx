@@ -1,7 +1,7 @@
 import classes from "./index.module.css"
 import { Answer } from "./answer"
 import { QuestionContext } from "../../providers/questionProvider"
-import { useContext, useEffect, useState } from "react"
+import { useContext} from "react"
 
 export const Answers = () => {
     const alphabet = ["A", "B", "C", "D"]
