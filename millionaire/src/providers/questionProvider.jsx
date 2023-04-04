@@ -15,24 +15,32 @@ const shuffle=(array)=> {
 const questions=shuffle(questinons);
 
 const defaultContext={
-    id: 0,
+    id: 14,
     question: questions[0],
-    finish: ()=>{},
     restart: ()=>{},
-    nextQuestion: ()=>{}
+    finish: ()=>{},
+    nextQuestion: ()=>{},
+    finished: false
 }
 
 export const QuestionContext  = createContext(defaultContext);
 
 export const QuestionProvider =({children})=>{
+  const [shuffledQuestions, setShuffledQuestions] = useState(questinons)
+  const [finished, setFinish] = useState(false)
     const [question, setQuestion]=useState(defaultContext.question);
+
     const [id, setId]=useState(defaultContext.id);
     const finish=()=>{
-      alert("cestitam")
+      setFinish(true)
     }
-    const restart=(dialog)=>{
-      console.log(dialog)
+    const restart=()=>{
+      setShuffledQuestions(shuffle(questinons))
+      setId(0)
+      setQuestion(shuffledQuestions[id])
+      
     }
+
     const nextQuestion =()=>{
       if(id==14){
         setId(id+1)
@@ -40,7 +48,8 @@ export const QuestionProvider =({children})=>{
         return
       }
         setId(id+1)
-        setQuestion(questions[id+1]);
+        setQuestion(shuffledQuestions[id+1]);
     }
-    return <QuestionContext.Provider value={{question, id, finish, restart, nextQuestion}}>{children}</QuestionContext.Provider>
+
+    return <QuestionContext.Provider value={{question, id, finish, restart, nextQuestion, finish, finished}}>{children}</QuestionContext.Provider>
 }
