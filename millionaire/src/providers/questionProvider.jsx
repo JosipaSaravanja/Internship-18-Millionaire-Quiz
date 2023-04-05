@@ -15,12 +15,14 @@ const shuffle=(array)=> {
 const questions=shuffle(questinons);
 
 const defaultContext={
-    id: 14,
-    question: questions[0],
+    id: 13,
+    question: {id: questions[0].id, question: questions[0].question, answers: shuffle(questions[0].answers)},
     restart: ()=>{},
     finish: ()=>{},
     nextQuestion: ()=>{},
-    finished: false
+    hide: ()=>{},
+    finished: false,//?
+    hidden: []
 }
 
 export const QuestionContext  = createContext(defaultContext);
@@ -28,28 +30,30 @@ export const QuestionContext  = createContext(defaultContext);
 export const QuestionProvider =({children})=>{
   const [shuffledQuestions, setShuffledQuestions] = useState(questinons)
   const [finished, setFinish] = useState(false)
+  const [hidden, setHidden] = useState([])
     const [question, setQuestion]=useState(defaultContext.question);
 
     const [id, setId]=useState(defaultContext.id);
     const finish=()=>{
       setFinish(true)
     }
+
+    const hide =(num)=>{
+      setHidden(prev=>[...prev, num])
+  }
+    
     const restart=()=>{
       setShuffledQuestions(shuffle(questinons))
       setId(0)
-      setQuestion(shuffledQuestions[id])
-      
+      setHidden([])
+      setQuestion({id: shuffledQuestions[0].id, question: shuffledQuestions[0].question, answers: shuffle(shuffledQuestions[0].answers)})
     }
 
     const nextQuestion =()=>{
-      if(id==14){
         setId(id+1)
-        finish()
-        return
-      }
-        setId(id+1)
-        setQuestion(shuffledQuestions[id+1]);
+        setQuestion({id: shuffledQuestions[id+1].id, question: shuffledQuestions[id+1].question, answers: shuffle(shuffledQuestions[id+1].answers)});
+        setHidden([])
     }
 
-    return <QuestionContext.Provider value={{question, id, finish, restart, nextQuestion, finish, finished}}>{children}</QuestionContext.Provider>
+    return <QuestionContext.Provider value={{question, id, finish, restart, hide, hidden, nextQuestion, finish, finished}}>{children}</QuestionContext.Provider>
 }

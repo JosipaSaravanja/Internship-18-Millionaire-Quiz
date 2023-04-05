@@ -3,6 +3,7 @@ import { createContext, useContext, useState } from "react";
 export const DIALOG = {
   SUBMIT_ANSWER_DIALOG: "SUBMIT_ANSWER",
   WRONG_ANSWER_DIALOG: "RESTART_DIALOG",
+  HELP_DIALOG: "HELP_DIALOG",
   WON_DIALOG: "WON_DIALOG"
 };
 
@@ -24,9 +25,11 @@ export const DialogProvider = ({ children }) => {
     defaultContext.additionalProps
   );
 
-  const open = (dialog, additionalProps = {}) => {
+  const open = (dialog, additionalPropse = {}) => {
     setActiveDialog(dialog);
-    setAdditionalProps(additionalProps);
+    console.log(additionalPropse)
+    setAdditionalProps(additionalPropse);
+    console.log(additionalProps)
   };
 
   const close = () => {

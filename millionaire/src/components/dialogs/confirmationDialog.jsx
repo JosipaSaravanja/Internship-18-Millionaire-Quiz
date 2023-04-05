@@ -5,7 +5,7 @@ import {
     Button,
   } from "@mui/material";
     
-  export const ConfirmationDialog = ({ isOpen, onClose, onSubmit, task }) => {
+  export const ConfirmationDialog = ({ isOpen, onClose, onSubmit}) => {
     const handleSubmit = () => {
       onSubmit();
       onClose();

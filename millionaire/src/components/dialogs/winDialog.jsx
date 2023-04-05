@@ -5,9 +5,10 @@ import {
   Button,
 } from "@mui/material";
   
-export const WinDialog = ({ isOpen, onClose}) => {
+export const WinDialog = ({ isOpen, onClose, onSubmit}) => {
   const handleSubmit = () => {
-    /* onSubmit(); */
+    console.log(onSubmit)
+    onSubmit(); 
     onClose();
   };
 

@@ -16,7 +16,7 @@
   }
   
     
-  .answer{
+  .answer, wrong{
     margin: 0 0 0 2vw;
     border-radius: 4.25vh;
     box-sizing: border-box;
@@ -36,7 +36,10 @@
     background-color: green;
   }
   .wrong{
-    background-color: red;
+    font-size: 300px;
   }
 
+  .hide{
+    opacity: 0;
+  }
   /*fdebounce*/

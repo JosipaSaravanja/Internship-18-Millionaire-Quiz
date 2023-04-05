@@ -1,4 +1,5 @@
 import { Prize } from "./prize"
+import { Jokers } from "./jokers"
 import classes from "./index.module.css"
 import prizes from "../../data/prizes.json"
 import {QuestionContext} from "../../providers/questionProvider"
@@ -9,7 +10,7 @@ export const SideWrapper =()=>{
     const context=useContext(QuestionContext)
     return <div className={classes.sideWrapper}>
         <div className={classes.jokers}>
-
+            <Jokers />
         </div>
 
         <div className={classes.score}>

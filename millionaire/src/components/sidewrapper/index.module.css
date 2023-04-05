@@ -52,3 +52,18 @@
   background-color: orange;
   color: white
 }
+.jokers{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.jokers img{
+  cursor: pointer;
+  margin: 1vw;
+  width: 5vw;
+}
+.used{
+  opacity: 0.5;
+  cursor: default!important;
+}

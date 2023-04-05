@@ -10,23 +10,24 @@ export const Answer = (props) => {
 
     useEffect(()=>{
         if(dialog.restart===DIALOG.WRONG_ANSWER_DIALOG && props.isAnswer){
-        setBackgroundColor("green")
-        }else if(props.isAnswer){
+            setBackgroundColor("green")
+        }else if(null){
+            console.log("ajde")
             setBackgroundColor("")
         }
     }, [dialog.restart])
 
-console.log("render")
     const correct=()=>{
         setBackgroundColor("green")
         console.log("1")
         setTimeout(() => {
             setBackgroundColor("")
-            context.nextQuestion();
+            context.id===14? dialog.open(DIALOG.WON_DIALOG, { onSubmit: ()=>context.restart()}): context.nextQuestion();
         }, 2000);
         
     }
 
+    
     const wrong=()=>{
         setBackgroundColor("red")
         dialog.newDialog(DIALOG.WRONG_ANSWER_DIALOG)
@@ -47,7 +48,7 @@ console.log("render")
     }
 
     return <div
-        className={classes.answer} style={{backgroundColor: backgroundColor}}
+    className={context.hidden.some(el=>el===props.id)? classes.hide: classes.answer} style={{backgroundColor: backgroundColor}}
         onClick={() => handleClick()}>
         {props.text}
     </div>
