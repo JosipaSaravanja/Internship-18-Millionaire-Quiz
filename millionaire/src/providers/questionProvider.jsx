@@ -30,7 +30,7 @@ export const QuestionContext  = createContext(defaultContext);
 export const QuestionProvider =({children})=>{
   const [shuffledQuestions, setShuffledQuestions] = useState(questinons)
   const [finished, setFinish] = useState(false)
-  const [hidden, setHidden] = useState([])
+  const [hidden, setHidden] = useState(defaultContext.hidden)
     const [question, setQuestion]=useState(defaultContext.question);
 
     const [id, setId]=useState(defaultContext.id);
@@ -38,8 +38,8 @@ export const QuestionProvider =({children})=>{
       setFinish(true)
     }
 
-    const hide =(num)=>{
-      setHidden(prev=>[...prev, num])
+    const hide =(array)=>{
+      setHidden(array)
   }
     
     const restart=()=>{

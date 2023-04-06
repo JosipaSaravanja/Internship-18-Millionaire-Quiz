@@ -23,8 +23,7 @@ export const Answer = (props) => {
         setTimeout(() => {
             setBackgroundColor("")
             context.id===14? dialog.open(DIALOG.WON_DIALOG, { onSubmit: ()=>context.restart()}): context.nextQuestion();
-        }, 2000);
-        
+        }, 2000); 
     }
 
     

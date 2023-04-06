@@ -20,6 +20,7 @@ export const Jokers = () => {
         }
     }, [context.id])
 
+
     useEffect(() => {
         if (posibility) {
             dialog.open(DIALOG.HELP_DIALOG, { additionalInfo: "Pretpostavljamo da je odgovor: " + posibility })
@@ -27,22 +28,18 @@ export const Jokers = () => {
         }
     }, [posibility])
 
-
     const fifty = () => {
-        let i=0
-        do{
-            const random = Math.trunc(Math.random() * 3)+1;
-            if(!context.hidden.some(el=>el===random)){
-                context.hide(random)
-                i++
-            }
-        }while(i<2)
-        console.log(context.hidden)
-        console.log("ei")
+        const numberOne = Math.trunc(Math.random() * 3) + 1;
+        let numberTwo;
+        do {
+            numberTwo = Math.trunc(Math.random() * 3) + 1;
+        } while (numberOne === numberTwo);
+
+        context.hide([numberOne, numberTwo])
         setDisabled(prev => [...prev, HELPS.FIFTY_FIFTY])
     }
 
-    const getPossibilities=(num)=>{
+    const getPossibilities = (num) => {
         const random = Math.random() * 10;
         if (random < num) {
             const odg = context.question.answers.filter(el => el.isAnswer === true)[0].text;
@@ -64,14 +61,14 @@ export const Jokers = () => {
     }
 
     return <div>
-        <img src={require('../../img/Fifty.jpg')} 
+        <img src={require('../../img/Fifty.jpg')}
             className={disabled.some(el => el === HELPS.FIFTY_FIFTY) ? classes.used : null}
             onClick={() => disabled.some(el => el === HELPS.FIFTY_FIFTY) ? null : fifty()} />
         <img
             src={require('../../img/Phone_a_friend.jpg')}
             className={disabled.some(el => el === HELPS.PHONE_A_FRIEND) ? classes.used : null}
             onClick={() => disabled.some(el => el === HELPS.PHONE_A_FRIEND) ? null : friend()} />
-        <img src={require('../../img/public.jpg')} 
+        <img src={require('../../img/public.jpg')}
             className={disabled.some(el => el === HELPS.ASK_AUDIENCE) ? classes.used : null}
             onClick={() => disabled.some(el => el === HELPS.ASK_AUDIENCE) ? null : audience()} />
     </div>
