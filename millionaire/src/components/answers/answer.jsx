@@ -8,12 +8,10 @@ export const Answer = (props) => {
     const context = useContext(QuestionContext)
     const [backgroundColor, setBackgroundColor] = useState("")
     useEffect(() => {
-        console.log()
         if (dialog.activeDialog === null) {
             setBackgroundColor("")
-        } else if(dialog.activeDialog===DIALOG.WRONG_ANSWER_DIALOG && props.isAnswer){
+        } else if (dialog.activeDialog === DIALOG.WRONG_ANSWER_DIALOG && props.isAnswer) {
             setBackgroundColor("green")
-
         }
     }, [dialog.activeDialog])
 
@@ -30,7 +28,7 @@ export const Answer = (props) => {
     const wrong = () => {
         setBackgroundColor("red")
         console.log("provmjena")
-        dialog.open(DIALOG.WRONG_ANSWER_DIALOG, {})        
+        dialog.open(DIALOG.WRONG_ANSWER_DIALOG, {})
         setTimeout(() => {
             dialog.close()
             context.restart()
@@ -43,14 +41,14 @@ export const Answer = (props) => {
         console.log(dialog.activeDialog)
         dialog.open(DIALOG.SUBMIT_ANSWER_DIALOG, {
             onSubmit: () => props.isAnswer ? correct() : wrong()
-        })  
+        })
     }
 
     return <div
         backgroundColor={dialog.activeDialog === DIALOG.WRONG_ANSWER_DIALOG && props.isAnswer ? "green" : ""}
-        className={`${classes.answer} ${context.hidden.some(el => el === props.id) ? classes.hide : ""}`} 
+        className={`${classes.answer} ${context.hidden.some(el => el === props.id) ? classes.hide : ""}`}
         style={{ backgroundColor: backgroundColor }}
-        onClick={() => context.hidden.some(el => el === props.id)? "" : handleClick()}>
+        onClick={() => context.hidden.some(el => el === props.id) ? "" : handleClick()}>
         {props.text}
     </div>
 }

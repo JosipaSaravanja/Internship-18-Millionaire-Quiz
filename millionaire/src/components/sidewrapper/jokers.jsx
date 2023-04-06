@@ -60,7 +60,7 @@ export const Jokers = () => {
         setDisabled(prev => [...prev, HELPS.ASK_AUDIENCE]);
     }
 
-    return <div>
+    return <div className={classes.jokers}>
         <img src={require('../../img/Fifty.jpg')}
             className={disabled.some(el => el === HELPS.FIFTY_FIFTY) ? classes.used : null}
             onClick={() => disabled.some(el => el === HELPS.FIFTY_FIFTY) ? null : fifty()} />

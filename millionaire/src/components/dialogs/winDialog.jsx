@@ -4,11 +4,10 @@ import {
   DialogActions,
   Button,
 } from "@mui/material";
-  
-export const WinDialog = ({ isOpen, onClose, onSubmit}) => {
+
+export const WinDialog = ({ isOpen, onClose, onSubmit }) => {
   const handleSubmit = () => {
-    console.log(onSubmit)
-    onSubmit(); 
+    onSubmit();
     onClose();
   };
 

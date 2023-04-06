@@ -8,7 +8,6 @@ import {
   export const ConfirmationDialog = ({ isOpen, onClose, onSubmit}) => {
     const handleSubmit = () => {
       onSubmit();
-      
     };
   
     return (
