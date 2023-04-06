@@ -16,7 +16,7 @@ const shuffle = (array) => {
 const questions = shuffle(data);
 
 const defaultContext = {
-  id: 14,
+  id: 0,
   question: 
   { id: questions[0].id, 
     question: questions[0].question, 
