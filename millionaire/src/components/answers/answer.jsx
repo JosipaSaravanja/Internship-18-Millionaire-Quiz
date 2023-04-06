@@ -15,6 +15,11 @@ export const Answer = (props) => {
         }
     }, [dialog.activeDialog])
 
+    useEffect(() => {
+        console.log(context.hidden)
+    }, [context.hidden])
+
+
     const correct = () => {
         setBackgroundColor("green")
         dialog.open(DIALOG.CORRECT_ANSWER_DIALOG, {})

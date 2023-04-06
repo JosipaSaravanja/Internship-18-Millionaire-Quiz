@@ -35,6 +35,7 @@ export const Jokers = () => {
             numberTwo = Math.trunc(Math.random() * 2) + 1;
         } while (numberOne === numberTwo);
         setDisabled(prev => [...prev, HELPS.FIFTY_FIFTY])
+        context.hide([numberOne, numberTwo])
     }
 
     const getPossibilities = (num) => {
