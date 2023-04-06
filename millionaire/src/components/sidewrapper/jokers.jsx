@@ -15,6 +15,8 @@ export const Jokers = () => {
     const [disabled, setDisabled] = useState([])
 
     useEffect(() => {
+        console.log(disabled)
+        console.log(dialog.activeDialog)
         if (dialog.activeDialog===DIALOG.WON_DIALOG || dialog.activeDialog===DIALOG.WRONG_ANSWER_DIALOG) {
             setDisabled([])
         }

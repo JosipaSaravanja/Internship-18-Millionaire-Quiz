@@ -1,10 +1,10 @@
 import classes from "./index.module.css"
 import { QuestionContext } from "../../providers/questionProvider"
 import { useContext, useEffect, useState } from "react"
-import { DIALOG, useDialog, DialogContext } from "../../providers/dialogProvider"
+import { DIALOG, useDialog } from "../../providers/dialogProvider"
 
 export const Answer = (props) => {
-    const dialog = useContext(DialogContext)
+    const dialog = useDialog()
     const context = useContext(QuestionContext)
     const [backgroundColor, setBackgroundColor] = useState("")
     useEffect(() => {
