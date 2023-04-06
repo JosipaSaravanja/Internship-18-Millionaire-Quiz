@@ -1,6 +1,6 @@
 import classes from "./index.module.css"
-import { QuestionContext } from "../../providers/questionProvider"
-import { DialogContext, DIALOG } from "../../providers/dialogProvider"
+import { useQuestion } from "../../providers/questionProvider"
+import { DIALOG, useDialog } from "../../providers/dialogProvider"
 import { useState, useContext, useEffect } from "react"
 
 export const Jokers = () => {
@@ -9,14 +9,12 @@ export const Jokers = () => {
         FIFTY_FIFTY: " FIFTY_FIFTY",
         ASK_AUDIENCE: "ASK_AUDIENCE",
     }
-    const context = useContext(QuestionContext)
-    const dialog = useContext(DialogContext)
+    const context = useQuestion()
+    const dialog = useDialog();
     const [posibility, setPosibility] = useState()
     const [disabled, setDisabled] = useState([])
 
     useEffect(() => {
-        console.log(disabled)
-        console.log(dialog.activeDialog)
         if (dialog.activeDialog===DIALOG.WON_DIALOG || dialog.activeDialog===DIALOG.WRONG_ANSWER_DIALOG) {
             setDisabled([])
         }
@@ -36,8 +34,6 @@ export const Jokers = () => {
         do {
             numberTwo = Math.trunc(Math.random() * 2) + 1;
         } while (numberOne === numberTwo);
-
-        context.hide([numberOne, numberTwo])
         setDisabled(prev => [...prev, HELPS.FIFTY_FIFTY])
     }
 

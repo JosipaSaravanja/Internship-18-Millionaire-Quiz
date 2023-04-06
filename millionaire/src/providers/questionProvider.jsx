@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext} from "react";
 import data from "../data/questions.json"
 
 const shuffle = (array) => {
@@ -66,3 +66,5 @@ export const QuestionProvider = ({ children }) => {
 
   return <QuestionContext.Provider value={{ id, question, restart, nextQuestion, hide, hidden}}>{children}</QuestionContext.Provider>
 }
+
+export const useQuestion = () => useContext(QuestionContext);

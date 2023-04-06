@@ -1,9 +1,9 @@
 import classes from "./index.module.css"
-import { QuestionContext } from "../../providers/questionProvider"
+import { QuestionContext, useQuestion } from "../../providers/questionProvider"
 import { useContext } from "react"
 
 export const Question = () => {
-    const context = useContext(QuestionContext)
+    const context = useQuestion()
     return <div className={classes.question}>
         {context.question.question}
     </div>

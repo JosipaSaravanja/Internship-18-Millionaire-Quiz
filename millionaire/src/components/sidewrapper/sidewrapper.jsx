@@ -2,12 +2,11 @@ import { Prize } from "./prize"
 import { Jokers } from "./jokers"
 import classes from "./index.module.css"
 import prizes from "../../data/prizes.json"
-import { QuestionContext } from "../../providers/questionProvider"
-import { useContext } from "react"
+import { useQuestion } from "../../providers/questionProvider"
 
 export const SideWrapper = () => {
     prizes.reverse();
-    const context = useContext(QuestionContext)
+    const context = useQuestion()
     return <div className={classes.sideWrapper}>
         <Jokers />
 

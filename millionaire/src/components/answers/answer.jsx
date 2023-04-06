@@ -1,11 +1,11 @@
 import classes from "./index.module.css"
-import { QuestionContext } from "../../providers/questionProvider"
-import { useContext, useEffect, useState } from "react"
+import { useQuestion } from "../../providers/questionProvider"
+import { useEffect, useState } from "react"
 import { DIALOG, useDialog } from "../../providers/dialogProvider"
 
 export const Answer = (props) => {
     const dialog = useDialog()
-    const context = useContext(QuestionContext)
+    const context = useQuestion()
     const [backgroundColor, setBackgroundColor] = useState("")
     useEffect(() => {
         if (dialog.activeDialog === null) {
@@ -27,7 +27,6 @@ export const Answer = (props) => {
 
     const wrong = () => {
         setBackgroundColor("red")
-        console.log("provmjena")
         dialog.open(DIALOG.WRONG_ANSWER_DIALOG, {})
         setTimeout(() => {
             dialog.close()
@@ -38,7 +37,6 @@ export const Answer = (props) => {
 
     const handleClick = () => {
         setBackgroundColor("orange")
-        console.log(dialog.activeDialog)
         dialog.open(DIALOG.SUBMIT_ANSWER_DIALOG, {
             onSubmit: () => props.isAnswer ? correct() : wrong()
         })
