@@ -10,7 +10,7 @@ export const Answers = () => {
     return <div className={classes.answers}>
         {
             context.question.answers.map((el, id) => {
-                return <Answer id={id} text={alphabet[id] + ": " + el.text} isAnswer={el.isAnswer}></Answer>
+                return <Answer id={el.id} text={alphabet[id] + ": " + el.text} isAnswer={el.isAnswer}></Answer>
             })
         }
     </div>

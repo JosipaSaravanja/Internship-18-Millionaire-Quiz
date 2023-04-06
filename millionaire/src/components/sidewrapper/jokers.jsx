@@ -15,10 +15,10 @@ export const Jokers = () => {
     const [disabled, setDisabled] = useState([])
 
     useEffect(() => {
-        if (!context.id) {
+        if (dialog.activeDialog===DIALOG.WON_DIALOG || dialog.activeDialog===DIALOG.WRONG_ANSWER_DIALOG) {
             setDisabled([])
         }
-    }, [context.id])
+    }, [dialog.activeDialog])
 
 
     useEffect(() => {
@@ -29,10 +29,10 @@ export const Jokers = () => {
     }, [posibility])
 
     const fifty = () => {
-        const numberOne = Math.trunc(Math.random() * 3) + 1;
+        const numberOne = Math.trunc(Math.random() * 2) + 1;
         let numberTwo;
         do {
-            numberTwo = Math.trunc(Math.random() * 3) + 1;
+            numberTwo = Math.trunc(Math.random() * 2) + 1;
         } while (numberOne === numberTwo);
 
         context.hide([numberOne, numberTwo])

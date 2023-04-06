@@ -16,7 +16,7 @@
   }
   
     
-  .answer, wrong{
+  .answer{
     margin: 0 0 0 2vw;
     border-radius: 4.25vh;
     box-sizing: border-box;
@@ -30,13 +30,6 @@
   }
   .answer:hover{
     background-color: orange;
-  }
-
-  .correct{
-    background-color: green;
-  }
-  .wrong{
-    font-size: 300px;
   }
 
   .hide{
